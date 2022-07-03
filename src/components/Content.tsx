@@ -2,6 +2,7 @@ import { memo, useContext } from 'react'
 import styled from 'styled-components'
 
 import { stateContext } from '../contexts/context'
+import { appearance } from '../styles/animation'
 import { BigText, BoldText } from '../styles/style'
 
 const Container = styled.article`
@@ -9,6 +10,8 @@ const Container = styled.article`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  ${appearance(100)}
 `
 
 function Content() {
