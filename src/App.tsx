@@ -1,21 +1,32 @@
 import { ReactNode } from 'react'
-import { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 
+import Achieve from './containers/Achieve'
 import ContextProvider from './contexts/context'
 import { theme } from './styles/theme'
+
+const Container = styled.main`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`
 
 function App() {
   return (
     <Layout>
       <ContextProvider>
-        <div />
+        <Achieve />
       </ContextProvider>
     </Layout>
   )
 }
 
 function Layout({ children }: { children: ReactNode }) {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  return (
+    <ThemeProvider theme={theme}>
+      <Container>{children}</Container>
+    </ThemeProvider>
+  )
 }
 
 export default App
