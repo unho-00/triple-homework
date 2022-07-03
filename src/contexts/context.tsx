@@ -1,9 +1,11 @@
 import { createContext, Dispatch, ReactNode, useMemo, useReducer } from 'react'
 
-interface InInitialState {
+export type TyAward = ['google' | 'apple', string, string]
+
+export interface InInitialState {
   yearMonth: string
   contents: string[][]
-  awards: string[][]
+  awards: TyAward[]
 }
 
 const initialState: InInitialState = {
@@ -33,8 +35,8 @@ const reducer = (state: InInitialState, action: Action): InInitialState => {
   }
 }
 
-const stateContext = createContext<InInitialState | null>(null)
-const dispatchContext = createContext<Dispatch<Action> | null>(null)
+export const stateContext = createContext<InInitialState>(initialState)
+export const dispatchContext = createContext<Dispatch<Action> | null>(null)
 
 function ContextProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, initialState)
