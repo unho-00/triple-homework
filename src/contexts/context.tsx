@@ -1,19 +1,12 @@
-import {
-  createContext,
-  Dispatch,
-  memo,
-  ReactNode,
-  useMemo,
-  useReducer,
-} from 'react'
+import { createContext, Dispatch, ReactNode, useMemo, useReducer } from 'react'
 
-interface IInitialState {
+interface InInitialState {
   yearMonth: string
   contents: string[][]
   awards: string[][]
 }
 
-const initialState: IInitialState = {
+const initialState: InInitialState = {
   yearMonth: '2019년 2월 기준',
   contents: [
     ['350만 명', '의 사용자'],
@@ -26,9 +19,12 @@ const initialState: IInitialState = {
   ],
 }
 
-type Action = { type: 'TMP'; text: string }
+interface Action {
+  type: 'TMP'
+  text: string
+}
 
-const reducer = (state: IInitialState, action: Action): IInitialState => {
+const reducer = (state: InInitialState, action: Action): InInitialState => {
   switch (action.type) {
     case 'TMP':
       return state
@@ -37,7 +33,7 @@ const reducer = (state: IInitialState, action: Action): IInitialState => {
   }
 }
 
-const stateContext = createContext<IInitialState | null>(null)
+const stateContext = createContext<InInitialState | null>(null)
 const dispatchContext = createContext<Dispatch<Action> | null>(null)
 
 function ContextProvider({ children }: { children: ReactNode }) {
