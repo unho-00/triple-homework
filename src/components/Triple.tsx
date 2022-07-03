@@ -3,9 +3,12 @@ import styled from 'styled-components'
 
 import { images } from '../constant/image'
 import { stateContext } from '../contexts/context'
+import { appearance } from '../styles/animation'
 import { Img, TripleFigure, YearMonthText } from '../styles/style'
 
-const Container = styled.article``
+const Container = styled.article`
+  ${appearance(0)}
+`
 
 function Triple() {
   const { yearMonth } = useContext(stateContext)

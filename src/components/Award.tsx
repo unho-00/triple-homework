@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { images } from '../constant/image'
 import { stateContext, TyAward } from '../contexts/context'
+import { appearance } from '../styles/animation'
 import { AwardFigure, Img, NormalText } from '../styles/style'
 
 const Container = styled.article`
@@ -12,6 +13,8 @@ const Container = styled.article`
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+
+  ${appearance(200)}
 `
 
 const ItemContainer = styled.section`
