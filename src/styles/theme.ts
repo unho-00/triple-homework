@@ -2,10 +2,13 @@ import { DefaultTheme } from 'styled-components'
 
 declare module 'styled-components' {
   export interface DefaultTheme {
+    color: {
+      grey: string
+    }
     font: {
       size: {
-        big: string
         normal: string
+        big: string
       }
       weight: {
         bold: string
@@ -15,10 +18,13 @@ declare module 'styled-components' {
 }
 
 const theme: DefaultTheme = {
+  color: {
+    grey: '#676767',
+  },
   font: {
     size: {
-      big: '2rem',
-      normal: '1rem',
+      normal: '14px',
+      big: '36px',
     },
     weight: {
       bold: '700',
