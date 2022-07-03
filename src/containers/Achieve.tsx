@@ -8,13 +8,12 @@ import Award from '../components/Award'
 const Container = styled.section`
   min-width: 1200px;
   width: 1200px;
-  height: 200px;
   display: flex;
-  align-items: space-between;
+  justify-content: center;
+  gap: 180px;
 `
 
 const ContentsContainer = styled.div`
-  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;

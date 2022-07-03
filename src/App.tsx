@@ -6,6 +6,7 @@ import ContextProvider from './contexts/context'
 import { theme } from './styles/theme'
 
 const Container = styled.main`
+  margin-top: 100px;
   width: 100%;
   display: flex;
   justify-content: center;
