@@ -2,18 +2,20 @@ import { createContext, Dispatch, ReactNode, useMemo, useReducer } from 'react'
 
 export type TyAward = ['google' | 'apple', string, string]
 
+export type TyContent = [number, string, string]
+
 export interface InInitialState {
   yearMonth: string
-  contents: string[][]
+  contents: TyContent[]
   awards: TyAward[]
 }
 
 const initialState: InInitialState = {
   yearMonth: '2019년 2월 기준',
   contents: [
-    ['350만 명', '의 사용자'],
-    ['21만 개', '의 리뷰'],
-    ['650만 개', '의 저장'],
+    [350, '만 명', '의 사용자'],
+    [21, '만 개', '의 리뷰'],
+    [650, '만 개', '의 저장'],
   ],
   awards: [
     ['google', '2018', '올해의 앱 최우수상 수상'],
