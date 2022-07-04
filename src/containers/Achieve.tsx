@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import styled from 'styled-components'
 
 import Triple from '../components/Triple'
@@ -32,4 +31,4 @@ function Achieve() {
   )
 }
 
-export default memo(Achieve)
+export default Achieve

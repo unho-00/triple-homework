@@ -1,4 +1,4 @@
-import { memo, useContext } from 'react'
+import { useContext } from 'react'
 import styled from 'styled-components'
 
 import { images } from '../constant/image'
@@ -59,4 +59,4 @@ function Award() {
   )
 }
 
-export default memo(Award)
+export default Award
