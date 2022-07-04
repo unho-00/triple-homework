@@ -14,6 +14,8 @@ const Container = styled.article`
   ${appearance(100)}
 `
 
+const start = new Date().getTime()
+
 const easeOutQuart = (ms: number) => 1 - Math.pow(1 - ms / 2000, 5)
 
 const StaticText = memo(function StaticText({
@@ -28,8 +30,6 @@ const StaticText = memo(function StaticText({
     </>
   )
 })
-
-const start = new Date().getTime()
 
 function Content() {
   const { contents } = useContext(stateContext)
@@ -64,4 +64,4 @@ function Content() {
   )
 }
 
-export default memo(Content)
+export default Content
