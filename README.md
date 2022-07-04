@@ -1,46 +1,68 @@
-# Getting Started with Create React App
+# [트리플 2022 공개채용] 프론트엔드 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 프로젝트 실행 방법
 
-## Available Scripts
+최상위 디렉토리 **(/triple-homework)** 에서 아래 명령어를 실행해주시면 됩니다.
 
-In the project directory, you can run:
+```bash
+npm i
+npm run start
+```
 
-### `npm start`
+&nbsp;
+&nbsp;
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 사용한 기술과 선택한 이유
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### TypeScript
 
-### `npm test`
+디버깅 과정에서 미리 오류를 발견하여 미래에 발생할 버그를 줄이고 예방할 수 있어 사용하였습니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+또한, 함수, 변수, 상태 등에 타입을 지정하여 용도를 명확하게 하고, 데이터 타입 오류가 발생하지 않도록 방지할 수 있어 적용하였습니다.
 
-### `npm run build`
+&nbsp;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### ContextAPI
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+React의 상태관리로 내장되어 있는 ContextAPI를 이용하였습니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+과제 시작 전 간단한 설계 과정에서 여러 컴포넌트들이 중첩될 것으로 예상하였습니다.
 
-### `npm run eject`
+또한, 이후 지표 혹은 수상 내역이 변동이 발생하는 경우 상태 관리를 수월할 필요성이 있다고 생각하였습니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+&nbsp;
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+전역적으로 상태 관리하지 않고, 컴포넌트의 Props와 state를 이용하여 컴포넌트 내에서 상태 관리하는 방식은 컴포넌트의 깊이가 깊어지면 관리가 더욱 어려워진다고 판단하였습니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Redux, Recoil, mobX 와 같은 상태 관리 라이브러리를 이용하기에는 규모가 작다고 판단하여 불필요하다고 생각하였습니다.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+이러한 이유들로 전역적으로 상태 관리가 가능하면 규모가 작은 프로젝트에서도 수월하게 사용이 가능한 ContextAPI를 적용하였습니다.
 
-## Learn More
+&nbsp;
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Styled-Components
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+스타일 적용을 위해 Styled-Components를 이용하였습니다.
+
+일반적인 CSS를 이용하기에는 여러 파일로 분할된 컴포넌트에 스타일을 적용하기 어렵고, class를 구분하여 관리하기 어렵다고 생각하였습니다.
+
+그리고 Inline style 을 적용한다면 컴포넌트 파일의 내용이 길어질 수 있고, Element의 길이가 길어져 코드의 가시성이 떨어진다고 판단하였습니다.
+
+위의 이유들과 함께 컴포넌트별로 스타일 관리가 가능하고, props를 이용해 변수 값에 따른 스타일 적용도 가능한 Styled-Components를 적용하였습니다.
+
+&nbsp;
+
+### ESLint, Prettier, StyleLint
+
+프로그래밍 과정에서 일관된 코드 스타일을 유지하여 유지 보수가 용이하기 위하여 적용하였습니다.
+
+&nbsp;
+&nbsp;
+
+## 과제 특이사항
+
+### 상태 값 가정
+
+과제에서 주어진 텍스트 내용들은 하나의 고정된 텍스트가 아닌, 일정 기간에 따라 내용에 변동이 발생한다고 가정하였습니다.
+
+그로 인해, 고정적인 텍스트가 아닌 상태 값으로 관리하였습니다.
