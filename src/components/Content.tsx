@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { stateContext, TyContent } from '../contexts/context'
 import { appearance } from '../styles/animation'
-import { BigText, BoldText } from '../styles/style'
+import { BigText, BigBoldText } from '../styles/style'
 
 const Container = styled.article`
   width: 100%;
@@ -14,17 +14,20 @@ const Container = styled.article`
   ${appearance(100)}
 `
 
-function Item({ content, ms }: { content: TyContent; ms: number }) {
-  const easeOutQuart = 1 - Math.pow(1 - ms / 2000, 5)
+const easeOutQuart = (ms: number) => 1 - Math.pow(1 - ms / 2000, 5)
 
+const StaticText = memo(function StaticText({
+  content,
+}: {
+  content: TyContent
+}) {
   return (
-    <BigText>
-      <BoldText>{Math.round(0 + content[0] * easeOutQuart)}</BoldText>
-      <BoldText>{content[1]}</BoldText>
-      {content[2]}
-    </BigText>
+    <>
+      <BigBoldText>{content[1]}</BigBoldText>
+      <BigText>{content[2]}</BigText>
+    </>
   )
-}
+})
 
 const start = new Date().getTime()
 
@@ -52,7 +55,10 @@ function Content() {
   return (
     <Container>
       {contents.map((c: TyContent, idx) => (
-        <Item ms={ms} content={c} key={`${idx}${c[2]}`} />
+        <div style={{ display: 'flex', flexDirection: 'row' }} key={idx}>
+          <BigBoldText>{Math.round(0 + c[0] * easeOutQuart(ms))}</BigBoldText>
+          <StaticText content={c} key={idx} />
+        </div>
       ))}
     </Container>
   )

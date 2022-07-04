@@ -11,7 +11,8 @@ export const BigText = styled.p`
   font-size: ${({ theme }) => theme.font.size.big};
 `
 
-export const BoldText = styled.strong`
+export const BigBoldText = styled.strong`
+  font-size: ${({ theme }) => theme.font.size.big};
   font-weight: ${({ theme }) => theme.font.weight.bold};
 `
 
